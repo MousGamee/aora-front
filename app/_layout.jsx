@@ -14,21 +14,23 @@ const RootLayout = () => {
         "Poppins-Regular": require("../assets/fonts/Poppins-Regular.ttf"),
         "Poppins-SemiBold": require("../assets/fonts/Poppins-SemiBold.ttf"),
         "Poppins-Thin": require("../assets/fonts/Poppins-Thin.ttf"),
-      });
+    });
 
-      useEffect(() => {
-       
-      if (error) throw error
+    useEffect(() => {
 
-      if(fontsLoaded) SplashScreen.hideAsync()
-        
-      }, [fontsLoaded, error])
-      
-      if(!fontsLoaded && !error) return null
+        if (error) throw error
+
+        if (fontsLoaded) SplashScreen.hideAsync()
+
+    }, [fontsLoaded, error])
+
+    if (!fontsLoaded && !error) return null
 
     return (
-        <Stack>
-            <Stack.Screen name="index" options={{ headerShown: true }} />
+        <Stack screenOptions={{
+            headerShown: false,
+        }}>
+            <Stack.Screen name="index" />
         </Stack>
     )
 }

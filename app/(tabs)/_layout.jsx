@@ -33,6 +33,7 @@ const TabLayout = () => {
           tabBarActiveTintColor: "#FFA001",
           tabBarInactiveTintColor: "#CDCDE0",
           tabBarShowLabel: false,
+          headerShown: false,
           tabBarStyle: {
             backgroundColor: "#161622",
             borderTopWidth: 1,
@@ -45,7 +46,6 @@ const TabLayout = () => {
           name="home"
           options={{
             title: "Home",
-            headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon
                 icon={icons.home}
@@ -60,7 +60,6 @@ const TabLayout = () => {
           name="bookmark"
           options={{
             title: "Bookmark",
-            headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon
                 icon={icons.bookmark}
@@ -76,7 +75,6 @@ const TabLayout = () => {
           name="create"
           options={{
             title: "Create",
-            headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon
                 icon={icons.plus}
@@ -91,7 +89,6 @@ const TabLayout = () => {
           name="profile"
           options={{
             title: "Profile",
-            headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon
                 icon={icons.profile}
