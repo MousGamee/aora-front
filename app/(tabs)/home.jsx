@@ -4,24 +4,21 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { images } from '../../constants'
 import { SearchInput, Trending, VideoCard } from '../../components'
 import EmptyState from '../../components/EmptyState'
-import { getAllPosts } from '../../lib/appwrite'
+import { getAllPosts, getLatestPosts } from '../../lib/appwrite'
 import useAppwrite from '../../lib/useAppwrite'
 
 const Home = () => {
   const { data: posts, refetch } = useAppwrite(getAllPosts)
+  const { data: latestPosts } = useAppwrite(getLatestPosts)
   const [refreshing, setRefreshing] = useState(false)
 
 
   const onRefresh = async () => {
-    setRefreshing(true)
-
-    // re call videos -->
-
-    setRefreshing(false)
-  }
-
+    setRefreshing(true);
+    await refetch();
+    setRefreshing(false);
+  };
  
-console.log(posts.creator)
   return (
     <SafeAreaView className="bg-primary h-full">
       <FlatList
@@ -29,7 +26,6 @@ console.log(posts.creator)
         keyExtractor={item => item.$id}
         
         renderItem={({ item }) => {
-          console.log('creator ==>', item.creator.username)
           return (
             <VideoCard
             title={item.title}
@@ -61,7 +57,7 @@ console.log(posts.creator)
             {/* latest videos section */}
             <View className="w-full flex-1 pt-5 pb-8">
               <Text className="text-gray-100 text-lg font-pregular mb-3">Latest videos</Text>
-              <Trending posts={[{ id: 1 }, { id: 2 }] ?? []} />
+              <Trending posts={latestPosts ?? []} />
             </View>
           </View>
         )}
