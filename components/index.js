@@ -1,20 +1,20 @@
 
-// import VideoCard from "./VideoCard";
+import VideoCard from "./VideoCard";
 import FormField from "./FormField";
 import CustumButton from "./CustumButton";
 // import InfoBox from "./InfoBox";
 // import Loader from "./Loader";
-// import Trending from "./Trending";
-// import SearchInput from "./SearchInput";
-// import EmptyState from "./EmptyState";
+import Trending from "./Trending";
+import SearchInput from "./SearchInput";
+import EmptyState from "./EmptyState";
 
 export {
-//   VideoCard,
+  VideoCard,
   FormField,
   CustumButton,
 //   InfoBox,
 //   Loader,
-//   Trending,
-//   SearchInput,
-//   EmptyState,
+  Trending,
+  SearchInput,
+  EmptyState,
 };
